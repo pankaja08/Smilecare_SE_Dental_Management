@@ -1,4 +1,4 @@
-package com.example_SE_Dental_Management.SE_Dental_Management;
+package com.example_SE_Dental_Management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

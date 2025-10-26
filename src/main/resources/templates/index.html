@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,14 +111,34 @@
         <a href="#contact" class="text-gray-700 hover:text-primary smooth-transition">Contact</a>
       </div>
       <div class="flex items-center space-x-4">
-        <a href="login.html" id="loginBtn" class="text-gray-700 hover:text-primary smooth-transition whitespace-nowrap rounded-button">Login</a>
+
+        <div sec:authorize="isAnonymous()">
+          <a th:href="@{/login.html}" class="text-gray-700 hover:text-primary smooth-transition whitespace-nowrap rounded-button">
+            Login
+          </a>
+        </div>
+
+        <div sec:authorize="isAuthenticated() and hasRole('PATIENT')" class="flex items-center space-x-3">
+    <span class="text-gray-700">
+        Hi, <span sec:authentication="name" class="font-medium">Username</span>
+    </span>
+          <a th:href="@{/users/profile}" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 smooth-transition">
+            <i class="ri-user-line"></i>
+          </a>
+        </div>
+
       </div>
     </div>
   </div>
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="hero-bg min-h-screen flex items-center">
+<section id="home" class="hero-bg min-h-screen flex items-center pt-16"> <div th:if="${success}" class="absolute top-20 left-1/2 -translate-x-1/2 w-full max-w-md z-20">
+  <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded-lg shadow-lg text-center" role="alert">
+    <strong class="font-bold">Success!</strong>
+    <span class="block sm:inline" th:text="${success}"></span>
+  </div>
+</div>
   <div class="hero-overlay absolute inset-0"></div>
   <div class="relative z-10 w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +146,7 @@
         <h1 class="text-5xl font-bold text-gray-900 mb-6">Your Smile is Our Priority</h1>
         <p class="text-xl text-gray-700 mb-8">Experience exceptional dental care with our team of expert dentists. We provide comprehensive dental services in a comfortable, modern environment.</p>
         <div class="flex space-x-4">
-          <a href="Appointment.html" class="bg-primary text-white px-8 py-3 text-lg hover:bg-blue-600 smooth-transition whitespace-nowrap rounded-button">Book Appointment</a>
+          <a th:href="@{/appointments/book}" class="bg-primary text-white px-8 py-3 text-lg hover:bg-blue-600 smooth-transition whitespace-nowrap rounded-button">Book Appointment</a>
         </div>
       </div>
     </div>
