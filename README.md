@@ -1,7 +1,8 @@
 <h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=3591F7&center=true&vCenter=true&width=435&lines=SmileCare+Dental+System;Manage+Patients+Easily;Complete+Clinic+Solution" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=3591F7&center=true&vCenter=true&width=435&lines=SmileCare+Dental+Management+System;Manage+Patients+Easily;Complete+Clinic+Solution" alt="Typing SVG" />
 </h1>
-# 🦷 SmileCare Dental Management System
+
+## 🦷 SmileCare Dental Management System
 
 A modern and user-friendly Dental Clinic Management System designed to simplify patient handling, appointments, staff management, inventory, x-ray reports, and more.
 
